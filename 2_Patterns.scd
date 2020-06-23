@@ -11,26 +11,29 @@ a.next
 b = p.asStream
 b.next
 
-//Pbind - pairing keys and values
+// Pbind - pairing keys and values
 
-TempoClock.default.tempo = 120/60
+TempoClock.default.tempo = 60/60
 
 (
 Pbind(
-	\dur, Pseq([0.5,1],inf), //stream lasts as long as the shortest imbedded pattern
-	\degree, Pseq([0,1,2],inf),
+	\dur, Pseq([2,1],inf), //stream lasts as long as the shortest imbedded pattern
+	// \degree, Pseq([0,1,2],inf),
 ).play
 )
+
+// Pdef - accessing the stream by reference
 
 (
 Pdef(\melody,
 	Pbind(
-		\dur, Pseq([13/11,15/11,17/15],inf),
-		\degree, Pseq((5..9),inf),
+		\dur, Pseq([0.25],inf),
+		\degree, Pxrand((0..8),inf),
 		\octave,4,
 		\sustain, 0.1,
-		\scale, Scale.partch_o1,
-		\amp, 0.3,
+		\scale, Scale.choose.postln,
+		\amp, 0.1,
+		\pan, Pif(Pkey(\degree).even,{-1},{1}),
 	)
 ).play
 )
@@ -53,13 +56,3 @@ Pdef(\melody).stop
 // too many interesting pattern classes to list here!
 
 // bottom of Event helpfile has default event types
-
-
-
-
-
-// Links/Resources
-// scsynth.org
-// https://github.com/madskjeldgaard/awesome-supercollider
-
-// Approach to using help/docuemntation?

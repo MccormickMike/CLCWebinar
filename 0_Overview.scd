@@ -7,10 +7,19 @@
 // Basics: Language? Math? DSP? OOP?
 
 // a bit about me and how I learned SC,
-// state intentions - this 90 minutes is to show some of the potential of SC to inspire you to work on your own!
-// I may move fast, but everything I write here will be available on GitHu
-// nobody will learn this language in 90 minutes, but
-// if you plan on coding along, you may want to bring the master volume down (lower corner) so that you can hear what I'm saying
+// state intentions: this 90 minutes is to show some of the potential of SC to inspire you to work on your own!
+// I may move fast, but everything I write here will be available on GitHub here:
+// https://github.com/MccormickMike/CLCWebinar
+
+/***************************************************/
+
+// Links/Resources
+// https://supercollider.github.io/
+// https://github.com/madskjeldgaard/awesome-supercollider
+// scsynth.org
+// https://www.facebook.com/groups/supercollider/
+
+/***************************************************/
 
 
 // IMPORTANT!!!
@@ -21,29 +30,27 @@
 
 /* often-encountered characters */
 // comment (can also appear as above)
-() = code block
-{} = function
-[] = array
+() code block
+{} function
+[] array
 
-130 = integer
-130.0 = floating point
+130 integer
+130.0 floating point
 10.rand
 10.rand2
 20.rrand(30)
 rrand(20,30)
 
 // add some array manipulation/access/.do etc.
-[0,1,2,3]
-x = []
+x = [0,1,2,3]
 x.add(1)
 x = Array.fill(8,{10.rand})
 x.sort
-x.scramble
-x[3]
-x.do({arg item, index; item.postln; index.postln})
+x.scramble //there are many useful methods in the documentation (Collection, Sequencable Collection, etc.)
+x[3] //indexs start from 0
+x.do({arg item, index; [item,index].postln})
 x.do({arg i; i=i*10; i.postln})
-x.collect({arg i; i=i*10;})
-
+x.collect({arg i; i=i*10;i.postln})
 
 'symbol'
 \symbol // a name for something
@@ -82,7 +89,7 @@ x = {
 
 x.value(1);
 
-/* important pages in Help Documents */
+/* relevant help files */
 
 // Introduction to Objects
 // Syntax Shortcuts

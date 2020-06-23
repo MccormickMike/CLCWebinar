@@ -7,8 +7,14 @@
 // Pdef, Tdef, Ndef, MIDIdef, OSCdef, etc.
 // "recipes" for handling different types of behaviour
 
+// Client vs Server
 
-// sc140  - good things come in small packages
+// boot server (lower volume if necessary)
+
+{SinOsc.ar(440)*0.4}.play
+
+
+// sc140  - good things come in small packages!
 
 // Nathaniel Virgo
 {LocalOut.ar(a=CombN.ar(BPF.ar(LocalIn.ar(2)*7.5+Saw.ar([32,33],0.2),2**LFNoise0.kr(4/3,4)*300,0.1).distort,2,2,40));a}.play
@@ -20,7 +26,7 @@
 // I won't bother too much with DSP or synthesis theory as there are lots of great resources that explain those things better than I
 
 
-~buffer = Buffer.read(s,"/Users/mikemccormick/Desktop/drop.aif")
+~buffer = Buffer.read(s,"/Users/mikemccormick/Documents/GitHub/CLCWebinar/drop.aif")
 
 
 (
@@ -35,11 +41,12 @@ SynthDef(\playback,{
 }).add
 )
 
+
 Synth(\playback)
 Synth(\playback,[\bufnum, ~buffer,\rate,0.5.rrand(2.0),\amp,])
 
 
-Get into Ndefs?
+// Ndefs - many uses, but good for prototyping!
 
 
 

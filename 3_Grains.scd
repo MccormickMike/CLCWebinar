@@ -2,12 +2,6 @@
 
 /* Granular Synthesis (one approach) */
 
-
-
-
-
-// Pdef w/ Buffer SynthDef
-
 // segue from default instrument to granular by explaining Envelopes
 
 Env.sine.plot
@@ -15,7 +9,9 @@ Env.perc.plot
 Env.triangle.plot
 Env.adsr.plot
 
-~voiceBuffer?
+// stereo Buffer
+~violin = Buffer.readChannel(s,"/Users/mikemccormick/Documents/GitHub/CLCWebinar/violin.aiff",channels:[0])
+~violin.play
 
 (
 SynthDef(\grainPlayback,{
@@ -25,15 +21,32 @@ SynthDef(\grainPlayback,{
 	env = EnvGen.kr(Env.sine(grainDur),doneAction:2);
 	frames = BufFrames.kr(bufnum) - 1;
 
-	sig = PlayBuf.ar(1,bufnum,BufRateScale.kr(bufnum)*rate,startPos:frames * pos);
+	sig = PlayBuf.ar(1,bufnum,BufRateScale.kr(bufnum)*rate,startPos:frames * pos,loop:1);
 	sig = Pan2.ar(sig*env,pan,amp);
 	Out.ar(outBus,sig);
 }).add;
 )
 
-Synth(\grainPlayback,[\bufnum,~buffer,\grainDur,,\pos,0,])
+Synth(\grainPlayback,[\bufnum,~violin,\grainDur,0.5,\pos,0.5,])
 
-// Tbilisi lesson 3 for .do granular functions
+(
+Pdef(\grainer,
+	Pbind(
+		\instrument, \grainPlayback,
+		\dur, Pseq([0.125]/2,inf),
+		\bufnum,~violin,
+		\grainDur,0.4,
+		\pos, Pseries(0.45,0.0001,inf) + Pwhite(0.001,0.003,inf),
+		\rate, 1,
+		\amp,0.3,
+		\pan, Pseg([-1.0,1.0,-1.0],10,'lin',inf),
+	)
+).play
+)
+
+
+Pdef(\grainer).stop
+Pdef(\grainer).fadeTime = 6
 
 
 
@@ -48,6 +61,7 @@ Quarks.gui
 // Buffer Granulation
 // Live Granulation
 
+/* Granular UGens */
 GrainBuf // Granular synthesis with sound stored in a buffer
 GrainFM // Granular synthesis with frequency modulated sine tones
 GrainIn // Granulate an input signal
