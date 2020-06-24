@@ -51,4 +51,4 @@ x.recordNRT(
 
 // Non-Realtime Synthesis (NRT)
 // Score
-// SoundFile lists all the Header Formats
+// SoundFile -> lists all Header Formats
