@@ -2,7 +2,7 @@
 
 /* NRT / Fixed media rendering */
 
-// can simply record in RT - show how!
+// can simply record in RT - record funtion in lower right hand corner or Recorder Ugen!
 
 // new pattern
 (
@@ -13,7 +13,7 @@ p = Pbind(
 )
 
 p.play
-​
+
 // make a score from the pattern, 4 beats long
 z = p.asScore(4.0);
 z.score.do({arg i; i.postln})
