@@ -23,10 +23,10 @@
 {13.do{|i|k="SuperCollider"[i].ascii;20.do{|u|{MoogFF.ar(Saw.ar((k/4).midicps)*EnvGen.ar(Env.perc),u+k*9,k/30)}.play;(k*0.001).wait}}}.fork
 
 
-// I won't bother too much with DSP or synthesis theory as there are lots of great resources that explain those things better than I
+// I won't bother too much with DSP or synthesis theory as there are lots of great resources that can give a better explanation than I
 
 
-~buffer = Buffer.read(s,"/Users/mikemccormick/Documents/GitHub/CLCWebinar/drop.aif")
+~buffer = Buffer.read(s,)
 
 
 (
@@ -42,11 +42,12 @@ SynthDef(\playback,{
 )
 
 
-Synth(\playback)
+Synth(\playback) //will use the default argument values
 Synth(\playback,[\bufnum, ~buffer,\rate,0.5.rrand(2.0),\amp,])
 
 
-// Ndefs - many uses, but good for prototyping!
+// check if clock is okay...remember to leave time for questions!
+// Ndefs - many uses, but especially good for prototyping!
 
 
 

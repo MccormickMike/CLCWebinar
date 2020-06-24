@@ -10,7 +10,7 @@ Env.triangle.plot
 Env.adsr.plot
 
 // stereo Buffer
-~violin = Buffer.readChannel(s,"/Users/mikemccormick/Documents/GitHub/CLCWebinar/violin.aiff",channels:[0])
+~violin = Buffer.readChannel(s,,channels:[0])
 ~violin.play
 
 (
@@ -27,7 +27,7 @@ SynthDef(\grainPlayback,{
 }).add;
 )
 
-Synth(\grainPlayback,[\bufnum,~violin,\grainDur,0.5,\pos,0.5,])
+Synth(\grainPlayback,[\bufnum,~violin,\grainDur,0.5,\pos,0.5.rrand(0.8)])
 
 (
 Pdef(\grainer,
@@ -52,7 +52,7 @@ Pdef(\grainer).fadeTime = 6
 
 /* relevant helpfiles */
 
-// run this line
+// run this line:
 Quarks.gui
 // search for the miSCellaneous_lib from Daniel Meyer and click install
 // then recompile class library (under the language menu)
