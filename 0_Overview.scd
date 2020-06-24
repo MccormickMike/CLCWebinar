@@ -2,15 +2,6 @@
 
 /* Overview */
 
-// Should these be different tabs for clarity's sake? all uploaded to a github repo
-
-// Basics: Language? Math? DSP? OOP?
-
-// a bit about me and how I learned SC,
-// state intentions: this 90 minutes is to show some of the potential of SC to inspire you to work on your own!
-// I may move fast, but everything I write here will be available on GitHub here:
-// https://github.com/MccormickMike/CLCWebinar
-
 /***************************************************/
 
 // Links/Resources
@@ -42,7 +33,7 @@
 20.rrand(30)
 rrand(20,30)
 
-// add some array manipulation/access/.do etc.
+// array manipulation/access/.do etc.
 x = [0,1,2,3]
 x.add(1)
 x = Array.fill(8,{10.rand})
