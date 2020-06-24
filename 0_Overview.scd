@@ -48,7 +48,7 @@ x.add(1)
 x = Array.fill(8,{10.rand})
 x.sort
 x.scramble //there are many useful methods in the documentation (Collection, Sequencable Collection, etc.)
-x[3] //indexs start from 0
+x[3] //indexes start from 0
 x.do({arg item, index; [item,index].postln})
 x.do({arg i; i=i*10; i.postln})
 x.collect({arg i; i=i*10;i.postln})
@@ -67,7 +67,7 @@ a..z (no s) // global variable
 var local // local variable
 
 // words that cannot be used as variables
-nil, true, false, inf
+var, arg,nil, true, false, inf
 
 UGen.method // ugens could be oscillators, noise generators, filters, envelop generators, etc.
 
