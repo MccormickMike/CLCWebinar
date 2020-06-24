@@ -45,6 +45,8 @@ SynthDef(\playback,{
 Synth(\playback) //will use the default argument values
 Synth(\playback,[\bufnum, ~buffer,\rate,0.5.rrand(2.0),\amp,])
 
+{4.do({arg i;Synth(\playback,[\bufnum,~buffer,\rate,0.8,\pan,i.linlin(0,3,-1,1)]);0.1.wait})}.fork
+
 
 // check if clock is okay...remember to leave time for questions!
 // Ndefs - many uses, but especially good for prototyping!
