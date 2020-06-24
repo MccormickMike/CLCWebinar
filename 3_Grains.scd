@@ -10,7 +10,7 @@ Env.triangle.plot
 Env.adsr.plot
 
 // stereo Buffer
-~violin = Buffer.readChannel(s,,channels:[0])
+~violin = Buffer.readChannel(s,"/Users/mikemccormick/Documents/GitHub/CLCWebinar/violin.aiff",channels:[0])
 ~violin.play
 
 (
@@ -37,6 +37,7 @@ Pdef(\grainer,
 		\bufnum,~violin,
 		\grainDur,0.4,
 		\pos, Pseries(0.45,0.0001,inf) + Pwhite(0.001,0.003,inf),
+		// \pos,0.65 + Pwhite(0.001,0.003,inf),
 		\rate, 1,
 		\amp,0.3,
 		\pan, Pseg([-1.0,1.0,-1.0],10,'lin',inf),
@@ -44,10 +45,10 @@ Pdef(\grainer,
 ).play
 )
 
+Pbindef(\grainer,\grainDur,0.5)
 
 Pdef(\grainer).stop
-Pdef(\grainer).fadeTime = 6
-
+Pdef(\grainer).fadeTime = 4
 
 
 /* relevant helpfiles */
