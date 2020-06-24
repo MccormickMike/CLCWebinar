@@ -22,7 +22,7 @@ Pbind(
 ).play
 )
 
-// Pdef - accessing the stream by reference
+// Pdef - accessing the stream by reference (a name)
 
 (
 Pdef(\melody,
@@ -39,7 +39,7 @@ Pdef(\melody,
 )
 
 Pdef(\melody).quant = 4
-Pdef(\melody).fadeTime = 1
+Pdef(\melody).fadeTime = 4
 Pdef(\melody).stop
 
 
