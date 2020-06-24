@@ -23,11 +23,7 @@
 {13.do{|i|k="SuperCollider"[i].ascii;20.do{|u|{MoogFF.ar(Saw.ar((k/4).midicps)*EnvGen.ar(Env.perc),u+k*9,k/30)}.play;(k*0.001).wait}}}.fork
 
 
-// I won't bother too much with DSP or synthesis theory as there are lots of great resources that can give a better explanation than I
-
-
 ~buffer = Buffer.read(s,)
-
 
 (
 SynthDef(\playback,{
@@ -46,10 +42,6 @@ Synth(\playback) //will use the default argument values
 Synth(\playback,[\bufnum, ~buffer,\rate,0.5.rrand(2.0),\amp,])
 
 {4.do({arg i;Synth(\playback,[\bufnum,~buffer,\rate,0.8,\pan,i.linlin(0,3,-1,1)]);0.1.wait})}.fork
-
-
-// check if clock is okay...remember to leave time for questions!
-// Ndefs - many uses, but especially good for prototyping!
 
 
 
