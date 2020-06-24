@@ -2,8 +2,6 @@
 
 /* Granular Synthesis (one approach) */
 
-// segue from default instrument to granular by explaining Envelopes
-
 Env.sine.plot
 Env.perc.plot
 Env.triangle.plot
