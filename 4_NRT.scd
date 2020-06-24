@@ -2,9 +2,8 @@
 
 /* NRT / Fixed media rendering */
 
-
 // can simply record in RT - show how!
-​
+
 // new pattern
 (
 p = Pbind(
@@ -19,11 +18,10 @@ p.play
 z = p.asScore(4.0);
 z.score.do({arg i; i.postln})
 
-
 z.play;
-​
+
 // rendering a pattern to sound file directly:
-​
+
 (
 x = Pbind(
     \dur, Prand([0.25, 0.5], inf),
@@ -49,6 +47,7 @@ x.recordNRT(
 
 /* relevant help files */
 
+// Recorder
 // Non-Realtime Synthesis (NRT)
 // Score
 // SoundFile -> lists all Header Formats
