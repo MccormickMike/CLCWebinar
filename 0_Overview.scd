@@ -18,6 +18,7 @@
 // https://github.com/madskjeldgaard/awesome-supercollider
 // scsynth.org
 // https://www.facebook.com/groups/supercollider/
+// https://www.youtube.com/user/elifieldsteel
 
 /***************************************************/
 
